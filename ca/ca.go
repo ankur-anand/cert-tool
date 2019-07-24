@@ -54,7 +54,8 @@ func GenerateNewCA() (Authority, error) {
 		log.Println("cauthSigned has invalid headers and cannot be encoded")
 		return Authority{}, fmt.Errorf("cauthSigned has invalid headers and cannot be encoded")
 	}
-
+	fmt.Println("********************** ca.pem ***********************************")
+	fmt.Println(string(publicSignedCertificate))
 	privateKey := pem.EncodeToMemory(&pem.Block{Type: "RSA PRIVATE KEY", Bytes: x509.MarshalPKCS1PrivateKey(priv)})
 	if privateKey == nil {
 		log.Println("privateKey for CA Authority has invalid headers and cannot be encoded")
