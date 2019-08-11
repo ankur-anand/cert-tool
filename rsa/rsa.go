@@ -25,7 +25,9 @@ func (o *outPut) prettyPrint(w io.Writer) {
 	if err != nil {
 		fmt.Printf("Indentation Print Failed with error %s", err)
 	}
+	w.Write([]byte("\n\n"))
 	w.Write(json)
+	w.Write([]byte("\n\n"))
 }
 
 // NewRSAKeyPairForJWT generate private and public key for
